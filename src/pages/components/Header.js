@@ -1,12 +1,13 @@
+/* eslint-disable jsx-a11y/alt-text */
 /* eslint-disable @next/next/no-img-element */
+import styles from './Header.module.css';
 export default function Header() {
   return (
-    <div class="header">
-      <h1 class="center">Tecnofreak links</h1>
-      <img
-        class="shadow rounded-full max-w-xs h-auto align-middle border-none "
-        src="profile.jpg"
-      ></img>
+    <div className="col-xs-12">
+      <div className="text-center">
+        <img className="backdrop linktree" />
+        <h2 className={styles.h2}>Tecnofreak</h2>
+      </div>
     </div>
   );
 }

@@ -1,0 +1,30 @@
+.footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+  color: white;
+}
+.signature {
+  color: rgb(220, 20, 60);
+}
+.coffee {
+  color: rgb(220, 20, 60);
+}
+.signature:hover {
+  color: yellow;
+  text-decoration: none;
+}
+.coffee:hover {
+  color: yellow;
+  text-decoration: none;
+}
+
+.urls:link {
+  text-decoration: none;
+  color: white;
+}
+.urls:hover {
+  color: black;
+}

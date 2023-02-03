@@ -1,0 +1,19 @@
+FROM node:19.6.0-bullseye as base
+FROM base as dependencies
+WORKDIR /build
+COPY package*.json .
+ARG NODE_ENV
+ENV NODE_ENV $NODE_ENV
+RUN npm install
+
+FROM base as build
+WORKDIR /build
+COPY --from=dependencies /build/node_modules ./node_modules
+COPY src ./src
+COPY public ./public
+COPY package.json next.config.js jsconfig.json ./
+RUN npm run build && npm run export
+
+FROM nginx:1.19.10-alpine as prod
+COPY --from=build /nextjs-ui/out /usr/share/nginx/html
+EXPOSE 80
