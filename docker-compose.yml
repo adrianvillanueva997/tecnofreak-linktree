@@ -1,0 +1,24 @@
+version: "3.0"
+services:
+  web:
+    image: ghcr.io/adrianvillanueva997/links-tecnofreak-net:latest
+    networks:
+      - proxy
+    container_name: links.tecnofreak.net
+    restart: unless-stopped
+    labels:
+      - com.ouroboros.enable=true
+      - "traefik.enable=true"
+      - "traefik.http.middlewares.tecnofreak-redirect-websecure.redirectscheme.scheme=https"
+      - "traefik.http.middlewares.tecnofreak-redirect-websecure.redirectscheme.permanent=true"
+      - "traefik.http.routers.tecnofreak-web.middlewares=tecnofreak-redirect-websecure"
+      - traefik.http.routers.tecnofreak-web.rule=Host(`links.tecnofreak.net`)
+      - traefik.http.routers.tecnofreak-web.entrypoints=http
+      - traefik.http.routers.tecnofreak-websecure.rule=Host(`links.tecnofreak.net`)
+      - traefik.http.routers.tecnofreak-websecure.tls.certresolver=le
+      - traefik.http.routers.tecnofreak-websecure.tls=true
+      - traefik.http.routers.tecnofreak-websecure.entrypoints=https
+      - "traefik.docker.network=proxy"
+networks:
+  proxy:
+    external: true

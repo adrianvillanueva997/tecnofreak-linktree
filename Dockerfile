@@ -15,5 +15,5 @@ COPY package.json next.config.js jsconfig.json ./
 RUN npm run build && npm run export
 
 FROM nginx:1.19.10-alpine as prod
-COPY --from=build /nextjs-ui/out /usr/share/nginx/html
+COPY --from=build /build/out /usr/share/nginx/html
 EXPOSE 80
