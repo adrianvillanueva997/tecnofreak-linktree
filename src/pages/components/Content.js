@@ -1,6 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 import {
   faBandcamp,
+  faSoundcloud,
   faTelegram,
   faWordpress,
 } from '@fortawesome/free-brands-svg-icons';
@@ -23,9 +24,9 @@ export default function Content() {
         </div>
         <div>
           <button type="button" className={listClasses}>
-            <a href="https://tecnofreak.net" className={styles.urls}>
+            <a href="https://t.me/tusapuntesdeguitarra" className={styles.urls}>
               <FontAwesomeIcon icon={faTelegram} className={styles.urls} />{' '}
-              Telegram music stuff
+              Telegram
             </a>
           </button>
         </div>
@@ -34,6 +35,14 @@ export default function Content() {
             <a href="https://vxd-as.bandcamp.com/" className={styles.urls}>
               <FontAwesomeIcon icon={faBandcamp} className={styles.urls} />{' '}
               Bandcamp
+            </a>
+          </button>
+        </div>
+        <div>
+          <button type="button" className={listClasses}>
+            <a href="https://on.soundcloud.com/va8Vg" className={styles.urls}>
+              <FontAwesomeIcon icon={faSoundcloud} className={styles.urls} />{' '}
+              SoundCloud
             </a>
           </button>
         </div>
