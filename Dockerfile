@@ -14,6 +14,6 @@ COPY public ./public
 COPY package.json next.config.js jsconfig.json ./
 RUN npm run build && npm run export
 
-FROM nginx:1.23.3-alpine as prod
+FROM nginx:1.23.4-alpine as prod
 COPY --from=build /build/out /usr/share/nginx/html
 EXPOSE 80
