@@ -1,4 +1,4 @@
-FROM node:20.5.0-bullseye as base
+FROM node:20.5.1-bullseye as base
 FROM base as dependencies
 WORKDIR /build
 COPY package*.json .
